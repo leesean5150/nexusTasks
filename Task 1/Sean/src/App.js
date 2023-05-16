@@ -49,29 +49,34 @@ function App() {
             />
             <button onClick = {() => addTask()}>Add task</button>
             <br></br><br></br>
-            <h3>Pending Tasks:</h3>
-            {/* Display list of tasks with a remove button*/}
-            {newList.length === 0 ? "You have no pending tasks." :
-            <ul>
-                {newList.map(task => (
-                    <li key={task.id}>
-                        {task.value}  
-                        <button onClick = {() => handleCompleted(task)}>Completed</button>
-                        <button onClick = {() => handleDelete(task.value)}>Remove</button>
-                    </li>
-                ))}
-            </ul>
-            }
-            <br></br><br></br>
-            <h3>Completed Tasks:</h3>
-            {/* Display list of tasks that are completed */}
-            <ul>
-                {completedList.map(task => (
-                    <li key={task.id}>
-                        {task.value}
-                    </li>
-                ))}
-            </ul>
+            <div style={{display: "flex", flexDirection: "row"}}>
+                <div style={{display: "flex", flexDirection: "column", justifyContent:'space-between', padding:10}}>
+                <h3>Pending Tasks:</h3>
+                {/* Display list of tasks with a remove button*/}
+                {newList.length === 0 ? "You have no pending tasks." :
+                <ul>
+                    {newList.map(task => (
+                        <li key={task.id}>
+                            {task.value}  
+                            <button onClick = {() => handleCompleted(task)}>Completed</button>
+                            <button onClick = {() => handleDelete(task.value)}>Remove</button>
+                        </li>
+                    ))}
+                </ul>
+                }
+                </div>
+                <div style ={{display: "flex", flexDirection: "column", justifyContent:'space-between', padding:10}}>
+                    <h3>Completed Tasks:</h3>
+                    {/* Display list of tasks that are completed */}
+                    <ul>
+                        {completedList.map(task => (
+                            <li key={task.id}>
+                                {task.value}
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+            </div>
         </div>
     );
 }
