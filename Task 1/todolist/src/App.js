@@ -7,7 +7,7 @@ import "./App.css";
 const App = () => {
   const [input, setInput] = useState("");
   const [todos, setTodos] = useState([]);
-  const [editTodo, setEditTodo] = useState(null)
+  const [editTodo, setEditTodo] = useState(null);
 
   return (
     <div className="container">
@@ -25,7 +25,12 @@ const App = () => {
             setEditTodo={setEditTodo}
           />
         </div>
-        <Todolist todos={todos} setTodos={setTodos} editTodo={editTodo} setEditTodo={setEditTodo}/>
+        <Todolist
+          todos={todos}
+          setTodos={setTodos}
+          editTodo={editTodo}
+          setEditTodo={setEditTodo}
+        />
       </div>
     </div>
   );

@@ -14,8 +14,8 @@
 
 .app-wrapper {
   background-color: #12343b;
-  min-width: 450px;
-  min-height: 650px;
+  min-width: 800px;
+  min-height: 700px;
   padding: 30px;
   box-sizing: border-box;
   border-radius: 10px;
@@ -62,7 +62,8 @@
 
 .button-complete,
 .button-delete,
-.button-edit {
+.button-edit,
+.button-date {
   border: none;
   outline: none;
   cursor: pointer;
@@ -73,6 +74,7 @@
 
 .button-complete {
   color: #ff6c6c;
+  margin-left: 2px;
   margin-right: 10px;
 }
 
@@ -85,6 +87,11 @@
   color: lightblue;
 }
 
+.button-date {
+  color: lightgreen;
+  margin-right: 10px;
+}
+
 .complete {
   text-decoration-style: solid;
   text-decoration-line: line-through;
@@ -93,13 +100,34 @@
 }
 
 .list {
-  width: 200px;
+  width: 150px;
   background-color: #12343b;
   border: none;
   color: #ccc;
   font-size: 20px;
   padding-left: 10px;
-  padding-right: 15px;
+  padding-right: 350px;
+}
+
+.date {
+  font-size: 20px;
+  color: green;
+  padding-top: 4px;
+  padding-right: 10px;
+}
+
+.dateNow {
+  font-size: 20px;
+  color: yellow;
+  padding-top: 4px;
+  padding-right: 10px;
+}
+
+.datePast {
+  font-size: 20px;
+  color: red;
+  padding-top: 4px;
+  padding-right: 10px;
 }
 
 input.focus,

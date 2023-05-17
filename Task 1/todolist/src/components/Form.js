@@ -1,21 +1,21 @@
-import React, {useEffect} from "react";
-import {v4 as uuidV4} from 'uuid';
+import React, { useEffect } from "react";
+import moment from 'moment'
+import { v4 as uuidV4 } from "uuid";
 
 const Form = ({ input, setInput, todos, setTodos, editTodo, setEditTodo }) => {
-  const updateTodo = (title, id, completed) => {
-    const newTodo = todos.map((todo) => 
-      todo.id === id ? {title, id, completed} : todo
-    )
+  const updateTodo = (title, id, completed, date) => {
+    const newTodo = todos.map((todo) =>
+      todo.id === id ? { title, id, completed, date } : todo
+    );
     setTodos(newTodo);
     setEditTodo("");
-    };
+  };
 
   useEffect(() => {
-    if(editTodo){
+    if (editTodo) {
       setInput(editTodo.title);
-    }
-    else{
-      setInput("")
+    } else {
+      setInput("");
     }
   }, [setInput, editTodo]);
 
@@ -25,14 +25,13 @@ const Form = ({ input, setInput, todos, setTodos, editTodo, setEditTodo }) => {
 
   const onFormSubmit = (event) => {
     event.preventDefault();
-    if(!editTodo){
-      setTodos([...todos, {id: uuidV4(), title: input, completed: false}])
-      setInput("")
+    if (!editTodo) {
+      setTodos([...todos, { id: uuidV4(), title: input, completed: false, date: moment().format('Do MMMM YYYY')}]);
+      setInput("");
+    } else {
+      updateTodo(input, editTodo.id, editTodo.completed, editTodo.date);
     }
-    else {
-      updateTodo(input, editTodo.id, editTodo.completed)
-    }
-  }
+  };
 
   return (
     <form onSubmit={onFormSubmit}>
