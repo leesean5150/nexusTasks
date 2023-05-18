@@ -1,3 +1,5 @@
+// Component to display name of app
+
 import React from 'react'
 
 const Header = () => {
