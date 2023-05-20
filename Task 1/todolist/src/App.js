@@ -2,11 +2,11 @@
 // Each State managed by specifc hook (Keep track of user Input)
 
 import React, { useState } from "react";
-import Header from "./components/Header";
-import Form from "./components/Form";
-import Todolist from "./components/Todolist";
+import Header from "./Pages/components/Header";
+import Form from "./Pages/components/Form";
+import Todolist from "./Pages/components/Todolist";
 import "./App.css";
-import Input from "./components/globalState"
+import Input from "./Pages/components/globalState"
 import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
 
 // (Keep track of user Input,todo items and edit states)
@@ -17,7 +17,6 @@ const App = () => {
 
   // Using Hook
   const [input, setInput] = useState("");         // Inital Value -> Empty String
-
   const [todos, setTodos] = useState([]);         // Inital Value -> Empty Array
   const [editTodo, setEditTodo] = useState(null); // Inital Value -> Null
   const [date, setDate] = useState();
