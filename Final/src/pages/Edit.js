@@ -15,7 +15,7 @@ export function Edit() {
   const [newDate, setNewDate] = useRecoilState(newDateState);
 
   const onFormSubmit = (event) => {
-    if (newDate === newDate) {
+    if (newTodo.date === newDate) {
       event.preventDefault();
       setToDos(
         toDos.map((todo) =>
