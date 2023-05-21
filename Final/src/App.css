@@ -1,43 +1,42 @@
 .complete {
-    text-decoration-style: solid;
-    text-decoration-line: line-through;
-    text-decoration-color: #ff6c6c;
-    opacity: 0.6;
-  }
-  
-  .list {
-    width: 150px;
-    border: none;
-    color: black;
-    font-size: 25px;
-    padding-left: 10px;
-    padding-right: 350px;
-  }
-  
-  .datepast {
-    width: 150px;
-    border: none;
-    color: red;
-    font-size: 17px;
-    padding-left: 10px;
-    padding-right: 350px;
-  }
-  
-  .dateurgent {
-    width: 150px;
-    border: none;
-    color: orange;
-    font-size: 17px;
-    padding-left: 10px;
-    padding-right: 350px;
-  }
-  
-  .datefuture {
-    width: 150px;
-    border: none;
-    color: green;
-    font-size: 17px;
-    padding-left: 10px;
-    padding-right: 350px;
-  }
-  
+  text-decoration-style: solid;
+  text-decoration-line: line-through;
+  text-decoration-color: #ff6c6c;
+  opacity: 0.6;
+}
+
+.list {
+  width: 150px;
+  border: none;
+  color: black;
+  font-size: 15px;
+  padding-left: 10px;
+  padding-right: 350px;
+}
+
+.datepast {
+  width: 150px;
+  border: none;
+  color: red;
+  font-size: 15px;
+  padding-left: 10px;
+  padding-right: 350px;
+}
+
+.dateurgent {
+  width: 150px;
+  border: none;
+  color: orange;
+  font-size: 15px;
+  padding-left: 10px;
+  padding-right: 350px;
+}
+
+.datefuture {
+  width: 150px;
+  border: none;
+  color: green;
+  font-size: 15px;
+  padding-left: 10px;
+  padding-right: 350px;
+}
