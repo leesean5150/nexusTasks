@@ -15,19 +15,35 @@ export function Edit() {
   const [newDate, setNewDate] = useRecoilState(newDateState);
 
   const onFormSubmit = (event) => {
-    event.preventDefault();
-    setToDos(
-      toDos.map((todo) =>
-        todo.id === newTodo.id
-          ? {
-              id: todo.id,
-              title: newEdit,
-              date: newDate.toLocaleDateString(),
-              completed: todo.completed,
-            }
-          : todo
-      )
-    );
+    if (newDate === newDate) {
+      event.preventDefault();
+      setToDos(
+        toDos.map((todo) =>
+          todo.id === newTodo.id
+            ? {
+                id: todo.id,
+                title: newEdit,
+                date: newDate,
+                completed: todo.completed,
+              }
+            : todo
+        )
+      );
+    } else {
+      event.preventDefault();
+      setToDos(
+        toDos.map((todo) =>
+          todo.id === newTodo.id
+            ? {
+                id: todo.id,
+                title: newEdit,
+                date: newDate.toLocaleDateString(),
+                completed: todo.completed,
+              }
+            : todo
+        )
+      );
+    }
     setNewToDo("");
     setNewEdit("");
     setNewDate("");

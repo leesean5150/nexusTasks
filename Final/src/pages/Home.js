@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 
 import { useRecoilState } from "recoil";
-import { newEditState, newTodoState, toDosState } from "./atoms";
+import { newDateState, newEditState, newTodoState, toDosState } from "./atoms";
 
 import moment from "moment";
 
@@ -11,6 +11,7 @@ export function Home() {
   const [toDos, setToDos] = useRecoilState(toDosState);
   const [newEdit, setNewEdit] = useRecoilState(newEditState);
   const [newTodo, setNewToDo] = useRecoilState(newTodoState);
+  const [newDate, setNewDate] = useRecoilState(newDateState);
 
   const handleDelete = ({ id }) => {
     setToDos(toDos.filter((todo) => todo.id !== id));
@@ -27,12 +28,14 @@ export function Home() {
     );
   };
 
-  const handleEdit = ({ id }) => {
-    const findTodo = toDos.find((todo) => todo.id === id);
+  const handleEdit = (todo) => {
+    const findTodo = toDos.find((task) => task.id === todo.id);
     setNewEdit(findTodo.title);
     console.log(newEdit);
     setNewToDo(findTodo);
     console.log(newTodo);
+    setNewDate(todo.date);
+    console.log(newDate);
     navigate("/edit");
   };
 

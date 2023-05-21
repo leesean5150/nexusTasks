@@ -15,16 +15,29 @@ export function Add() {
   const [toDos, setToDos] = useRecoilState(toDosState);
 
   const onFormSubmit = (event) => {
-    event.preventDefault();
-    setToDos([
-      ...toDos,
-      {
-        id: uuidV4(),
-        title: newTodo,
-        date: newDate.toLocaleDateString(),
-        completed: false,
-      },
-    ]);
+    if (newDate === "") {
+      event.preventDefault();
+      setToDos([
+        ...toDos,
+        {
+          id: uuidV4(),
+          title: newTodo,
+          date: moment().format("YYYY-MM-DD"),
+          completed: false,
+        },
+      ]);
+    } else {
+      event.preventDefault();
+      setToDos([
+        ...toDos,
+        {
+          id: uuidV4(),
+          title: newTodo,
+          date: newDate.toLocaleDateString(),
+          completed: false,
+        },
+      ]);
+    }
     setNewDate("");
     setNewTodo("");
     setNewDate("");
