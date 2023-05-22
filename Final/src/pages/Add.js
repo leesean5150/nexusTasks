@@ -22,7 +22,8 @@ export function Add() {
         {
           id: uuidV4(),
           title: newTodo,
-          date: moment().format("YYYY-MM-DD"),
+          date: moment().format("DD/MM/YYYY"),
+          // date: moment().format("YYYY-MM-DD"),
           completed: false,
         },
       ]);
