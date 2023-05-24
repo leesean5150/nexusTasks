@@ -36,11 +36,13 @@ export function Add() {
           title: newTodo,
           // date: newDate.toLocaleDateString(),
           date: moment(newDate.toLocaleDateString()).format('DD/MM/YYYY'),
+          // console.log(newDate.toLocaleDateString());
           completed: false,
         },
       ]);
     }
-    // console.log(newDate.toLocaleDateString());
+    console.log(newDate.toLocaleDateString());
+    console.log(moment(newDate.toLocaleDateString()).format('DD/MM/YYYY'));
     setNewDate("");
     setNewTodo("");
     setNewDate("");
