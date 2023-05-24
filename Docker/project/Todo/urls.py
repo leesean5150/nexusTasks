@@ -16,7 +16,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from testApp.views import index
+
+
+#This is where we will render the pages
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    # Creating new landing page (passing function index, creating url path index)
+    path('',index,name="index")
 ]
