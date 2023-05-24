@@ -41,8 +41,6 @@ export function Add() {
         },
       ]);
     }
-    console.log(newDate.toLocaleDateString());
-    console.log(moment(newDate.toLocaleDateString()).format('DD/MM/YYYY'));
     setNewDate("");
     setNewTodo("");
     setNewDate("");
