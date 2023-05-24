@@ -10,6 +10,7 @@ import { v4 as uuidV4 } from "uuid";
 export function Add() {
   const navigate = useNavigate();
 
+  // implemented recoil state
   const [newTodo, setNewTodo] = useRecoilState(newTodoState);
   const [newDate, setNewDate] = useRecoilState(newDateState);
   const [toDos, setToDos] = useRecoilState(toDosState);
