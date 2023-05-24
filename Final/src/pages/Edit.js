@@ -37,7 +37,8 @@ export function Edit() {
             ? {
                 id: todo.id,
                 title: newEdit,
-                date: newDate.toLocaleDateString(),
+                // date: newDate.toLocaleDateString(),
+                date: moment(newDate.toLocaleDateString()).format('DD/MM/YYYY'),
                 completed: todo.completed,
               }
             : todo

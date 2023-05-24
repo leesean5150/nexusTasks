@@ -10,7 +10,6 @@ import { v4 as uuidV4 } from "uuid";
 export function Add() {
   const navigate = useNavigate();
 
-  // implemented recoil state
   const [newTodo, setNewTodo] = useRecoilState(newTodoState);
   const [newDate, setNewDate] = useRecoilState(newDateState);
   const [toDos, setToDos] = useRecoilState(toDosState);
@@ -35,7 +34,9 @@ export function Add() {
         {
           id: uuidV4(),
           title: newTodo,
-          date: newDate.toLocaleDateString(),
+          // date: newDate.toLocaleDateString(),
+          date: moment(newDate.toLocaleDateString()).format('DD/MM/YYYY'),
+          // console.log(newDate.toLocaleDateString());
           completed: false,
         },
       ]);
