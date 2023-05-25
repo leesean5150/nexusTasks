@@ -30,7 +30,6 @@ COPY poetry.lock pyproject.toml /app/
 
 #Installing project dependecies
 
-# poetry config virtualenvs.in-project true (Original First Line)
 RUN poetry config virtualenvs.create false \
     && poetry run pip install -U setuptools==57.0.0
 RUN poetry install --no-interaction --no-ansi
@@ -38,7 +37,7 @@ RUN poetry install --no-interaction --no-ansi
 # Placed here so we don't trigger change that often
 COPY . /app/
 
-# Access Docker via  Port 5000
+# Access Docker via  Port 8000
 EXPOSE 8000
 
 #RWhen starting container based on image, execute the default command specified in the Dockerfile

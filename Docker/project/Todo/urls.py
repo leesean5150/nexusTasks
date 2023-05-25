@@ -15,7 +15,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from testApp.views import index
 
 
@@ -24,5 +24,8 @@ from testApp.views import index
 urlpatterns = [
     path('admin/', admin.site.urls),
     # Creating new landing page (passing function index, creating url path index)
-    path('',index,name="index")
+    path('',index,name="index"),
+
+    # Connects our root url to our api url
+    path('api/',include('api.urls')),
 ]

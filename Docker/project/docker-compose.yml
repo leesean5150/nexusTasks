@@ -5,7 +5,8 @@ services:
     image: postgres:12-alpine
       # Where database will be mounted inside docker
     volumes:
-      # - postgres_data:/var/lib/postgresql/data
+
+      # Data stored here in Docker
       - ./data/db:/var/postgresql/data
 
     ports:
@@ -17,19 +18,11 @@ services:
       # Latest attempt to solve Could not translate host name "db" to address using Postgres
       - POSTGRES_HOST_AUTH_METHOD=trust
 
-    # Help solve with translating host name "db" to addreass
-    # networks:
-    #   - djangonetwork
-
-  # volumes:
-  #   postgres_data:
+  
   web:
     build:
       context: .
       dockerfile: Dockerfile
-      #Run using poetry first
-    # command:  /bin/sh -c "start.sh"
-
 
       # Volume don't need to rerun build over and over
       # Still need to rerun the docker compose up
@@ -40,17 +33,3 @@ services:
       - "8000:8000"
     depends_on:
       - db
-    # Help solve with translating host name "db" to addreass
-    # links:
-    #   - db:db
-    # networks:
-    #   - djangonetwork
-      #Added
-    # environment:
-    #   - DB_HOST=db
-
-
-    # Help solve with translating host name "db" to addreass
-# networks:
-#   djangonetwork:
-#     driver: bridge
