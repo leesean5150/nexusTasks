@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "react-router-dom": "^6.11.2",
+    "recoil": "^0.7.7",
+    "tailwindcss": "^3.3.2",
+    "uuid": "^9.0.0"
+  }
+}
