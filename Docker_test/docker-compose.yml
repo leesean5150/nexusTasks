@@ -1,0 +1,44 @@
+version: "3"
+
+services:
+  db:
+    image: postgres:12-alpine
+      # Where database will be mounted inside docker
+    volumes:
+
+      # Data stored here in Docker
+      - ./data/db:/var/postgresql/data
+
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_DB=test1
+      - POSTGRES_USER=moni
+      - POSTGRES_PASSWORD=moni
+      # Latest attempt to solve Could not translate host name "db" to address using Postgres
+      - POSTGRES_HOST_AUTH_METHOD=trust
+
+  frontend:
+    build:
+      context: ./frontend
+    container_name: frontend_c
+    ports:
+      - '3000:3000'
+    volumes:
+      - ./frontend:/app
+    stdin_open: true
+    tty: true
+  
+  web:
+    build:
+      context: ./backend
+
+      # Volume don't need to rerun build over and over
+      # Still need to rerun the docker compose up
+    volumes:
+      - ./backend:/app
+    command: python manage.py runserver 0.0.0.0:8000
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
